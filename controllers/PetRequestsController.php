@@ -4,9 +4,12 @@ namespace app\controllers;
 
 use app\models\PetRequests;
 use app\models\PetRequestsSearch;
+use app\models\Status;
+use app\models\User;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+
 
 /**
  * PetRequestsController implements the CRUD actions for PetRequests model.
@@ -34,12 +37,23 @@ class PetRequestsController extends Controller
     /**
      * Lists all PetRequests models.
      *
-     * @return string
      */
     public function actionIndex()
     {
+        $user = User::getInstance();
+        if (!$user) {
+            return $this->goHome();
+        }
         $searchModel = new PetRequestsSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        if ($user->isAdmin()) {
+            $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index_admin', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+        ]);
+        }
+        $dataProvider = $searchModel->search($this->request->queryParams, $user->id);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -54,11 +68,20 @@ class PetRequestsController extends Controller
      */
     public function actionCreate()
     {
+        $user = User::getInstance();
+        if (!$user) {
+            return $this->goHome();
+        }
         $model = new PetRequests();
 
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+                $model->user_id = $user->id;
+                $model->status_id = Status::NEW_STATUS;
+                if ($model->save()) {
+                    return $this->redirect(['index']);
+                }
+                
             }
         } else {
             $model->loadDefaultValues();
@@ -78,10 +101,14 @@ class PetRequestsController extends Controller
      */
     public function actionUpdate($id)
     {
+        $user = User::getInstance();
+        if (!$user || !$user->isAdmin()) {
+            return $this->goHome();
+        }
         $model = $this->findModel($id);
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('update', [
@@ -104,4 +131,5 @@ class PetRequestsController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
+
 }

@@ -1,6 +1,7 @@
 <?php
 
 use app\models\PetRequests;
+use app\models\Status;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
@@ -10,16 +11,12 @@ use yii\widgets\Pjax;
 /** @var app\models\PetRequestsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Pet Requests';
+$this->title = 'Заявления';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pet-requests-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Pet Requests', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
 
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,19 +26,61 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'id',
+            'user',
             'name',
             'description:ntext',
-            'admin_message:ntext',
-            'missing_date',
-            //'user_id',
-            //'status_id',
             [
-                'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, PetRequests $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                 }
+                'attribute'=> 'admin_message',
+                'content' => function ($model) {
+                    $html = Html::beginForm(['update', 'id' => $model->id]);
+                    $html .= Html::activeTextarea($model, 'admin_message');
+                    $html .= Html::submitButton('Изменить', ['class' => 'btn btn-link']);
+                    $html .= Html::endForm();
+                    return $html;
+                }
+            ],
+            'missing_date',
+            [
+                'attribute' => 'status',
+                'content' => function ($PetRequests) {
+                    $html = Html::beginForm(['update', 'id' => $PetRequests->id]);
+                    if ($PetRequests -> status_id == Status::NEW_STATUS) {
+                        $html .= Html::activeDropDownList($PetRequests, 'status_id',
+                            [
+                                2 => 'Принята',
+                                3 => 'Отклонена'
+                            ],
+                            [
+                                'prompt' => [
+                                    'text' => 'В обработке',
+                                    'options' => [
+                                        'style' => 'display:none'
+                                    ]
+                                ]
+                            ]
+                        );
+                    } elseif ($PetRequests -> status_id == Status::PRINYAT_STATUS) {
+                        $html .= Html::activeDropDownList($PetRequests, 'status_id',
+                            [
+                                4 => 'Найден',
+                                5 => 'Не найден'
+                            ],
+                            [
+                                'prompt' => [
+                                    'text' => 'Принята',
+                                    'options' => [
+                                        'style' => 'display:none'
+                                    ]
+                                ]
+                            ]
+                        );
+                    } else {
+                        return $PetRequests->status;
+                    }
+                    $html .= Html::submitButton('Подтвердить', ['class' => 'btn btn-link']);
+                    $html .= Html::endForm();
+                    return $html;
+                }
             ],
         ],
     ]); ?>

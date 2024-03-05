@@ -38,7 +38,7 @@ class PetRequestsSearch extends PetRequests
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params, $id = null)
     {
         $query = PetRequests::find();
 
@@ -60,7 +60,7 @@ class PetRequestsSearch extends PetRequests
         $query->andFilterWhere([
             'id' => $this->id,
             'missing_date' => $this->missing_date,
-            'user_id' => $this->user_id,
+            'user_id' => ($id ?? $this->user_id),
             'status_id' => $this->status_id,
         ]);
 
