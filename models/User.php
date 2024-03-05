@@ -48,9 +48,9 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
             'email' => 'Email',
-            'password' => 'Password',
+            'password' => 'Пароль',
             'role_id' => 'Role ID',
         ];
     }
@@ -133,5 +133,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+    public static function login($email, $pass)
+    {
+        $user = self::findOne(['email'=> $email]);
+        if ($user && $user->validatePassword($pass)) {
+            return $user;
+        }
+        return null;
     }
 }
