@@ -16,12 +16,10 @@ use yii\bootstrap5\ActiveForm;
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'admin_message')->textarea(['rows' => 6]) ?>
-
-    <?= $form->field($model, 'missing_date')->textInput() ?>
+    <?= $form->field($model, 'missing_date')->textInput(['type' => 'datetime-local']) ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <?= Html::submitButton('Добавить', ['class' => 'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

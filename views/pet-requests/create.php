@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /** @var app\models\PetRequests $model */
 
 $this->title = 'Добавить заявление о пропаже';
-$this->params['breadcrumbs'][] = ['label' => 'Добавление потеряшки', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Заявления', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pet-requests-create">

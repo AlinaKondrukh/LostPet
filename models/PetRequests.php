@@ -34,7 +34,7 @@ class PetRequests extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'description', 'missing_date', 'user_id', 'status_id'], 'required'],
+            [['name', 'description', 'missing_date'], 'required', 'message' => 'Поле не заполнено'],
             [['description', 'admin_message'], 'string'],
             [['missing_date'], 'safe'],
             [['user_id', 'status_id'], 'integer'],
@@ -50,13 +50,11 @@ class PetRequests extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'description' => Yii::t('app', 'Description'),
-            'admin_message' => Yii::t('app', 'Admin Message'),
-            'missing_date' => Yii::t('app', 'Missing Date'),
-            'user_id' => Yii::t('app', 'User ID'),
-            'status_id' => Yii::t('app', 'Status ID'),
+            'name' => 'Кличка',
+            'description' => 'Описание',
+            'admin_message' => 'Сообщение от администратора',
+            'missing_date' => 'Дата пропажи',
+            'status' => 'Статус',
         ];
     }
 

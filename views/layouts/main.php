@@ -40,9 +40,9 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'navbar-nav'],
         'items' => [
             ['label' => 'Главная', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            ['label' => 'Регистрация', 'url' => ['/site/register']],
+            ['label' => 'Мои заявления', 'url' => ['/pet-requests/index']],
+            ['label' => 'Добавить заявление', 'url' => ['/pet-requests/create']],
+            
             Yii::$app->user->isGuest
                 ? ['label' => 'Логин', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
@@ -54,7 +54,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     . Html::endForm()
                     . '</li>',
             Yii::$app->user->isGuest
-                ?''
+                ? ['label' => 'Регистрация', 'url' => ['/site/register']]
                 :'',
         ]
     ]);

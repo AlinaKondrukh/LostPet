@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /** @var app\models\PetRequestsSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Заявления о пропажах';
+$this->title = 'Pet Requests';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="pet-requests-index">
@@ -18,7 +18,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Добавить заявление о пропаже', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Pet Requests', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -29,11 +29,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+
+            'id',
             'name',
             'description:ntext',
+            'admin_message:ntext',
             'missing_date',
-            'status',
-            'admin_message',
+            //'user_id',
+            //'status_id',
+            [
+                'class' => ActionColumn::className(),
+                'urlCreator' => function ($action, PetRequests $model, $key, $index, $column) {
+                    return Url::toRoute([$action, 'id' => $model->id]);
+                 }
+            ],
         ],
     ]); ?>
 
