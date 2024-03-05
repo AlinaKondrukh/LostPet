@@ -32,11 +32,13 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
     public function rules()
     {
         return [
-            [['name', 'email', 'password', 'role_id'], 'required'],
+            [['name', 'email', 'password', 'role_id'], 'required', 'message'=> 'Поле не заполнено'],
             [['role_id'], 'integer'],
             [['name'], 'string', 'max' => 511],
             [['email', 'password'], 'string', 'max' => 255],
             [['email'], 'unique'],
+            [['email'], 'email', 'message' => 'Электронная почта введена некорректно'],
+            [['password'], 'match', 'pattern' => '/^(?=.*[0-9])(?=.*[a-zA-Z])[a-zA-Z0-9!?\-\/\_\\\#\@]{8,}$/', 'message' => 'Пароль должен содержать минимум одну букву, одну цифру и быть не менее 8 символов (он может содержать только эти символы: !?-/_\#@).'],
             [['role_id'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['role_id' => 'id']],
         ];
     }
@@ -50,7 +52,8 @@ class User extends \yii\db\ActiveRecord implements \yii\web\IdentityInterface
             'id' => 'ID',
             'name' => 'Имя',
             'email' => 'Email',
-            'password' => 'Пароль',
+            'password' => 'Пароль (Может содержать цифры, латинские буквы и специальные символы (!?-/_\#@))',
+            'password_confirmation' => 'Повторите пароль',
             'role_id' => 'Role ID',
         ];
     }
