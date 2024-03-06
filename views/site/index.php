@@ -2,52 +2,49 @@
 
 /** @var yii\web\View $this */
 
-$this->title = 'My Yii Application';
+$this->title = 'LostPet';
 ?>
 <div class="site-index">
+<main>
+<h1 align="center" class="h1">LostPet</h1>
+    <hr class="featurette-divider">
 
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
+    <div class="row featurette">
+      <div class="col-md-7 order-md-2">
+        <h2 class="h2"  align="center"><i>О нас</i></h2>
+        <p class="lead lor" align="justify">LostPet – благотворительный проект, который создан для помощи домашним животным и их хозяевам.</p>
+<p class="lead lor" align="justify">Наша умная доска объявлений поможет найти пропавших собак и кошек. Мы используем искусственный интеллект для быстрого и удобного поиска питомцев с помощью простой фотографии. Если в базе есть объявления о пропаже и находке с фото одного и того же животного, публикации будут сопоставлены автоматически.</p>
+<p class="lead lor" align="justify">Мы хотим, чтобы люди более ответственно относились к своим питомцам, а общество стало более гуманным. И готовы в этом помочь. Заботиться – легко: не проходите мимо животных, которым нужна помощь. Присоединяйтесь к проекту. Вместе мы сделаем мир лучше!</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <img class="bd-placeholder-img img-a" src="/images/onas.png" alt="фото">
+      </div>
     </div>
 
-    <div class="body-content">
+    <hr class="featurette-divider">
+  <div class="container marketing">
 
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+    <div class="row">
+      <div class="col-lg-4" align="center">
+      <img class="bd-placeholder-img img-krug" src="/images/pic1.png" alt="фото">
+        <h2>Качественно подобранная команда</h2>
+        <p>Работают бывшие сотрудники разведки и спецслужб, криминалисты, кинологи, люди с большим опытом в области наблюдения и поиска с уникальным аналитическим складом ума. И нас объединяет одна общая черта — мы любим животных.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4" align="center">
+      <img class="bd-placeholder-img img-krug" src="/images/pic2.png" alt="фото">
+      <h2>Постоянное развитие</h2>
+        <p>Обмениваемся знаниями с иностранными коллегами из службы по розыску животных, консультируемся со спецслужбами, охотниками, держим руку на пульсе последних наработок в нашей области. Мы уже разработали оптимальный алгоритм для поиска сбежавших питомцев, и постоянно совершенствуем свой опыт.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4" align="center">
+      <img class="bd-placeholder-img img-krug" src="/images/pic3.png" alt="фото">
+        <h2>Эффективная работа</h2>
+        <p>Мы не просто ходим по дворам, а действуем по хорошо отлаженной системе, учитывая характер пропавшего питомца, особенности окружающей территории, время суток и множество других факторов. После беседы с владельцем питомца, анализируем место поиска и составляем маршрут. Только такой подход обеспечивает максимальную эффективность.</p>
+      </div>
     </div>
+
+    <hr class="featurette-divider">
+
+  </div>
 </div>
+
+
