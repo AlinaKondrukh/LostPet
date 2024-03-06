@@ -81,7 +81,7 @@ $logo = Html::img('@web/images/log.png', ['alt' => 'Логотип', 'class' => 
 
 <footer id="footer" class="mt-auto py-3 bg-light">
     <div class="container">
-        <div class="row text-muted">
+        <div class="row text-muted align-items-center">
             <div class="col-md-6 text-center text-md-start">
             <ul>    
                 <li class="nav-item"><b>Контактные данные:</b></li>

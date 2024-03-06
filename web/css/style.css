@@ -36,19 +36,6 @@ body {
 .h2 {
   font-size: 3em;
 }
-button {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 10px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background-color 0.5s;
-}
-button:hover {
-  background-color: #263e6b;
-}
 .title {
   font-family: 'Roboto', sans-serif;
   color:black;
@@ -59,4 +46,54 @@ button:hover {
   font-size: 23px;
   font-family: Arial, sans-serif;
   color: #333;
+}
+main > .container {
+  padding: 100px 15px 20px;
+}
+.bg-dark {
+  background-color: rgba(109, 202, 209, 1) !important;
+}
+.bg-light {
+  background-color: rgba(234, 186, 186, 1) !important;
+}
+.btn-primary {
+  color: rgb(255, 255, 255);
+  background-color: rgba(109, 202, 209, 1);
+  border-color: rgba(109, 202, 209, 1);
+}
+.btn-primary:hover, .btn-primary:active, .btn-primary:focus {
+  color: rgb(255, 255, 255)  !important;
+  background-color: rgba(234, 186, 186, 1)  !important;
+  border-color: rgba(234, 186, 186, 1)  !important;
+  box-shadow: 0 0 8px rgba(234, 186, 186, 1)  !important;
+}
+.form-check-input:checked {
+  background-color: rgba(109, 202, 209, 1);
+  border-color: rgba(109, 202, 209, 1);
+}
+.btn-success {
+  color: rgb(255, 255, 255);
+  background-color: rgba(234, 186, 186, 1) ;
+  border-color: rgba(234, 186, 186, 1) ;
+}
+.btn-success:hover, .btn-success:active, .btn-success:focus {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgba(109, 202, 209, 1) !important;
+  border-color: rgba(109, 202, 209, 1) !important;
+  box-shadow: 0 0 8px rgba(109, 202, 209, 1) !important;
+}
+a {
+  color: rgba(109, 202, 209, 1) ;
+  text-decoration: underline;
+}
+.btn-link {
+  color: rgba(234, 186, 186, 1);
+}
+.btn-link:hover {
+  color: rgba(109, 202, 209, 1) ;
+  box-shadow: 0 0 8px rgba(109, 202, 209, 1)
+}
+.nav-item {
+  color:#ffffff;
+  text-shadow: 1px 1px 1px rgba(113, 113, 113, 0.5);
 }
