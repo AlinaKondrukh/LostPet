@@ -2,5 +2,61 @@ li {
   list-style: none;  
 }
 .logo {
-    height: 40px;
+    height: 50px;
+}
+.carousel-item {
+  height: 500px;
+}
+.carousel-caption {
+  background-color: rgba(87, 87, 87, 0.24);
+}
+.img-slider {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.img-krug {
+  height: 50%;
+  width: 50%;
+  object-fit: contain;
+}
+.img-a {
+  height: 100%;
+  width: 100%;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+}
+.h1 {
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+  color: rgb(48, 213, 200);
+  font-size: 6em;
+}
+.h2 {
+  font-size: 3em;
+}
+button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.5s;
+}
+button:hover {
+  background-color: #263e6b;
+}
+.title {
+  font-family: 'Roboto', sans-serif;
+  color:black;
+  font-size: 3em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* подсветка текста */
+}
+.lor {
+  font-size: 23px;
+  font-family: Arial, sans-serif;
+  color: #333;
 }
